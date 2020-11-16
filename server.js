@@ -23,7 +23,6 @@ app.get("/notes", function(req, res) {
 // API ROUTES
 //Get route
 app.get("/api/notes", function(req, res) {
-    console.log(db);
     return res.json(db);
 });
 
@@ -56,9 +55,6 @@ app.delete("/api/notes/:id", function (req,res) {
     });
     
     res.json(db);
-    console.log(noteId);
-    console.log(index);
-    
 });
 
 // HTML route for homepage 
