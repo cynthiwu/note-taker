@@ -4,10 +4,9 @@ const path = require("path");
 const fs = require("fs");
 const uniqid = require("uniqid");
 const db = require("./db/db.json");
-const { runInNewContext } = require("vm");
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 
 // Middleware
@@ -21,7 +20,7 @@ app.get("/notes", function(req, res) {
 });
 
 
-// API routes
+// API ROUTES
 //Get route
 app.get("/api/notes", function(req, res) {
     console.log(db);
@@ -46,14 +45,12 @@ app.post("/api/notes", function(req, res) {
     res.json(db); 
 });
 
-// Delete
-
+// Delete API route
 app.delete("/api/notes/:id", function (req,res) {
 
     const noteId = req.params.id;
     const index = db.findIndex((el) => el.id == noteId);
     db.splice(index, 1);
-
     fs.writeFile(path.join(__dirname, "/db/db.json"), JSON.stringify(db), function (err) {
         if (err) throw err;
     });
@@ -61,6 +58,7 @@ app.delete("/api/notes/:id", function (req,res) {
     res.json(db);
     console.log(noteId);
     console.log(index);
+    
 });
 
 // HTML route for homepage 
