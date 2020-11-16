@@ -4,6 +4,7 @@ const path = require("path");
 const fs = require("fs");
 const uniqid = require("uniqid");
 const db = require("./db/db.json");
+const { runInNewContext } = require("vm");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -13,55 +14,59 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(express.static("public"));
-app.use(express.static("db"));
 
-
-// HTML routes
+// HTML route for Notes page
 app.get("/notes", function(req, res) {
     res.sendFile(path.join(__dirname + "/public/notes.html"))
 });
 
-app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname + "/public/index.html"))
-});
 
 // API routes
-//Get
+//Get route
 app.get("/api/notes", function(req, res) {
+    console.log(db);
     return res.json(db);
-    // let dataObj = JSON.parse(fs.readFileSync(path.join(__dirname, "/db/db.json")));
-    // console.log(dataObj);
-    // res.json(dataObj);
 });
 
 // Post
-// app.post("/api/notes", function(req, res) {
+app.post("/api/notes", function(req, res) {
 
-//     const id = uniqid();
-//     const newNote = {
-//         title: req.body.title,
-//         text: req.body.text,
-//         id: id
-//     };
+    const id = uniqid();
+    const newNote = {
+        title: req.body.title,
+        text: req.body.text,
+        id: id,
+    };
+    db.push(newNote);
 
-//     const dataArray = JSON.parse(fs.readFileSync(path.join(__dirname, "/db/db.json")));
-    
-//     dataArray.push(newNote);
+    fs.writeFile(path.join(__dirname, "/db/db.json"), JSON.stringify(db), function (err) {
+        if (err) throw err;
+    });
 
-//     fs.writeFile(path.join(__dirname, "/db/db.json"), JSOfN.stringify(dataArray), function (err) {
-//         if (err) throw err;
-//     });
-
-//     console.log(dataArray);
-//     res.json(dataArray); 
-// });
+    res.json(db); 
+});
 
 // Delete
 
-// app.delete("/api/notes/:id", function (req,res) {
-    
-// });
+app.delete("/api/notes/:id", function (req,res) {
 
+    const noteId = req.params.id;
+    const index = db.findIndex((el) => el.id == noteId);
+    db.splice(index, 1);
+
+    fs.writeFile(path.join(__dirname, "/db/db.json"), JSON.stringify(db), function (err) {
+        if (err) throw err;
+    });
+    
+    res.json(db);
+    console.log(noteId);
+    console.log(index);
+});
+
+// HTML route for homepage 
+app.get("*", function(req, res) {
+    res.sendFile(path.join(__dirname + "/public/index.html"))
+});
 
 // Listener
 app.listen(PORT, function() {
