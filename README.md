@@ -1,80 +1,90 @@
-# Unit 11 Express Homework: Note Taker
+# Template Engine
 
-## Description
+Explore the [project page](https://github.com/cynthiwu/note-taker)
 
-Create an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve note data from a JSON file.
+View it live on [Heroku]()
 
-* The application frontend has already been created, it's your job to build the backend and connect the two.
+## Table of Contents
+- [About The Project](#about-the-project)
+    - [Built With](#built-with)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Demo](#demo)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-* The following HTML routes should be created:
 
-  * GET `/notes` - Should return the `notes.html` file.
+## About The Project
 
-  * GET `*` - Should return the `index.html` file
+The goal of this project was to create an application whre the user can write, save and delete notes. It's easy to foget something, or recall something important. This application will help users keep track of a lot of information and record persistent notes to retrieve when needed. 
 
-* The application should have a `db.json` file on the backend that will be used to store and retrieve notes using the `fs` module.
+<hr>
 
-* The following API routes should be created:
+![Main Snapshot](./public//assets/images/main.png)
 
-  * GET `/api/notes` - Should read the `db.json` file and return all saved notes as JSON.
+<hr>
 
-  * POST `/api/notes` - Should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
+![Notes Snapshot](./public//assets/images/notes.png)
 
-  * DELETE `/api/notes/:id` - Should receive a query parameter containing the id of a note to delete. This means you'll need to find a way to give each note a unique `id` when it's saved. In order to delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, and then rewrite the notes to the `db.json` file.
+<hr>
 
-## User Story
+### Built With
 
-AS A user, I want to be able to write and save notes
+This project was built using:
 
-I WANT to be able to delete notes I've written before
+* JavaScript
+* jQuery
+* [Node.js](https://nodejs.org/api/fs.html)
+* [Express.JS](https://expressjs.com/)
+* [Uniqid NPM](https://www.npmjs.com/package/uniqid)
 
-SO THAT I can organize my thoughts and keep track of tasks I need to complete
+## Installation
 
-## Business Context
+While not necessary to run the program via the live link above, you may get a local copy up and running by following these simple steps:
 
-For users that need to keep track of a lot of information, it's easy to forget or be unable to recall something important. Being able to take persistent notes allows users to have written information available when needed.
+1. Clone the repo
+```sh
+git clone git@github.com:cynthiwu/note-taker.git 
+```
 
-## Acceptance Criteria
+2. Install NPM packages (i.e., Express.js)
+```sh
+npm install
+```
 
-Application should allow users to create and save notes.
+To install individually, you may execute the following:
+```sh
+npm install --save express uniqid
+```
 
-Application should allow users to view previously saved notes.
+## Usage
 
-Application should allow users to delete previously saved notes.
+This project can be used by anyone wishing to save a note to be retrieved in the future. The user should get started by clicking the "Get Started" button on the home page. Simply enter a note "Tite" and note "Text" in the appropiate input fields. A "Save" button will appear on the nav bar. Click this button to save the note. Saved notes will appear on the lefthand side of the screen. To delete a note, simply click the red traschcan icon of the given note. 
 
-## Deploying the App
+### Demo
 
-You will not be able to deploy your server side code on GitHub pages. This app should be deployed on Heroku. Carefully follow the [Heroku Guide](../04-Important/HerokuGuide.md) for getting your app deployed on Heroku.
+Watch the video below to see how the quiz works.
 
-- - -
+![Note Taker Demo](./public//assets/images/demo.gif)
 
-## Commit Early and Often
 
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
+## Contributing
 
-* Your commit history is a signal to employers that you are actively working on projects and learning new skills.
+Contributions are what make the open source community such an amazing place to  learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-* Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-Follow these guidelines for committing:
+## License
 
-* Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
+None
 
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
+## Contact
 
-* Don't commit half-done work, for the sake of your collaborators (and your future self!).
+Cynthia Wu - [@cynthia21wu](https://twitter.com/cynthia21wu) - cynthia21wu@gmail.com
 
-* Test your application before you commit to ensure functionality at every step in the development process.
-
-We would like you to have well over 200 commits by graduation, so commit early and often!
-
-## Submission on BCS
-
-You are required to submit the following:
-
-* The URL of the deployed application. This should be the link to the url provided by Heroku. Be sure not to submit a link to the Heroku dashboard.
-
-* The URL of the GitHub repository
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+Project Link: [https://github.com/cynthiwu/note-taker](https://github.com/cynthiwu/note-taker)
