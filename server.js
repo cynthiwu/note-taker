@@ -14,11 +14,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(express.static("public"));
 
-// HTML route for Notes page
-app.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname + "/public/notes.html"))
-});
-
 
 // API ROUTES
 //Get route
@@ -48,8 +43,9 @@ app.post("/api/notes", function(req, res) {
 app.delete("/api/notes/:id", function (req,res) {
 
     const noteId = req.params.id;
-    const index = db.findIndex((el) => el.id == noteId);
+    const index = db.findIndex(el => el.id == noteId);
     db.splice(index, 1);
+    
     fs.writeFile(path.join(__dirname, "/db/db.json"), JSON.stringify(db), function (err) {
         if (err) throw err;
     });
@@ -57,7 +53,14 @@ app.delete("/api/notes/:id", function (req,res) {
     res.json(db);
 });
 
-// HTML route for homepage 
+// HTML ROUTES
+
+// HTML route for Notes page
+app.get("/notes", function(req, res) {
+    res.sendFile(path.join(__dirname + "/public/notes.html"))
+});
+
+// HTML route for all other
 app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname + "/public/index.html"))
 });
