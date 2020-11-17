@@ -2,7 +2,7 @@
 
 Explore the [project page](https://github.com/cynthiwu/note-taker)
 
-View it live on [Heroku]()
+View it live on [Heroku](https://rocky-journey-04330.herokuapp.com/)
 
 ## Table of Contents
 - [About The Project](#about-the-project)
