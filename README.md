@@ -1,4 +1,4 @@
-# Template Engine
+# Note Taker
 
 Explore the [project page](https://github.com/cynthiwu/note-taker)
 
