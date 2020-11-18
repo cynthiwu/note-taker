@@ -17,7 +17,7 @@ View it live on [Heroku](https://rocky-journey-04330.herokuapp.com/)
 
 ## About The Project
 
-The goal of this project was to create an application whre the user can write, save and delete notes. It's easy to foget something, or recall something important. This application will help users keep track of a lot of information and record persistent notes to retrieve when needed. 
+The goal of this project was to create an application where the user can write, save and delete notes. It's easy to foget something, or recall something important. This application will help users keep track of a lot of information and record persistent notes to retrieve when needed. 
 
 <hr>
 
@@ -38,6 +38,8 @@ This project was built using:
 * [Node.js](https://nodejs.org/api/fs.html)
 * [Express.JS](https://expressjs.com/)
 * [Uniqid NPM](https://www.npmjs.com/package/uniqid)
+* [Bootstrap](https://getbootstrap.com/)
+* [Font Awesome](https://fontawesome.com/)
 
 ## Installation
 
