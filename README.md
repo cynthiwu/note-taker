@@ -62,7 +62,7 @@ npm install --save express uniqid
 
 ## Usage
 
-This project can be used by anyone wishing to save a note to be retrieved in the future. The user should get started by clicking the "Get Started" button on the home page. Simply enter a note "Tite" and note "Text" in the appropiate input fields. A "Save" button will appear on the nav bar. Click this button to save the note. Saved notes will appear on the lefthand side of the screen. To delete a note, simply click the red traschcan icon of the given note. 
+This project can be used by anyone wishing to save a note to be retrieved in the future. The user should get started by clicking the "Get Started" button on the home page. Simply enter a note "Tite" and note "Text" in the appropiate input fields. A "Save" button will appear in the nav bar. Click this button to save the note. Saved notes will appear on the lefthand side of the screen. To delete a note, simply click the red traschcan icon of the given note. 
 
 ### Demo
 
